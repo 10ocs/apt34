@@ -1,0 +1,98 @@
+<Window
+	x:Class="newPanel.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:newPanel"
+	Title="Glimpse v1.0.5"
+	Height="500"
+	Width="800"
+	Closing="OnWindowClosing">
+	<Grid>
+		<Label
+			Content="Count: "
+			HorizontalAlignment="Left"
+			Margin="10,10,0,0"
+			VerticalAlignment="Top" />
+		<Button
+			Content="Refresh"
+			HorizontalAlignment="Left"
+			Margin="707,70,0,0"
+			VerticalAlignment="Top"
+			Width="75"
+			Click="Button_Click" />
+		<DataGrid
+			Name="agetnsGrid"
+			AutoGenerateColumns="False"
+			RowHeaderWidth="0"
+			HorizontalAlignment="Left"
+			Height="364"
+			Margin="10,95,0,0"
+			VerticalAlignment="Top"
+			Width="772"
+			IsReadOnly="True"
+			GridLinesVisibility="Horizontal"
+			ColumnWidth="*">
+			<DataGrid.Columns>
+				<DataGridTextColumn
+					Width="30"
+					Header=" # "
+					IsReadOnly="True"
+					Binding="{Binding count}" />
+				<DataGridTextColumn
+					Width="150"
+					Header="ID"
+					IsReadOnly="True"
+					Binding="{Binding id}" />
+				<DataGridTextColumn
+					Width="150"
+					Header="IP"
+					IsReadOnly="True"
+					Binding="{Binding ip}" />
+				<DataGridTextColumn
+					Header="Last Online Time"
+					IsReadOnly="True"
+					Binding="{Binding lastActivity}" />
+				<DataGridTemplateColumn
+					Header="Your comment">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<!--Unknown connection ID: 4-->
+							<TextBox
+								Name="agent_comment"
+								MinWidth="200"
+								HorizontalAlignment="Left"
+								TextWrapping="Wrap"
+								VerticalAlignment="Top"
+								Text="{Binding comment}" />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+				<DataGridTemplateColumn
+					Width="70">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<!--Unknown connection ID: 5-->
+							<Button>Delete</Button>
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+			</DataGrid.Columns>
+			<ItemsControl.ItemContainerStyle>
+				<!--Unknown connection ID: 6-->
+				<Style
+					TargetType="{x:Type DataGridRow}" />
+			</ItemsControl.ItemContainerStyle>
+		</DataGrid>
+		<Label
+			Name="agent_counts"
+			Content=""
+			HorizontalAlignment="Left"
+			Margin="63,10,0,0"
+			VerticalAlignment="Top" />
+		<Button
+			Content="Open Home in Explorer"
+			HorizontalAlignment="Left"
+			Height="20"
+			Margin="642,10,0,0"
+			VerticalAlignment="Top"
+			Width="140"
+			Click="Button_Click_1" />
+	</Grid>
+</Window>
